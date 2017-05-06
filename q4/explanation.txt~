@@ -1,0 +1,3 @@
+a) Basically this uses a DNS spoofing attack. 
+
+b)He could protect himself. For example certification pinning would work, as even though the CA is compromised if Gov. pinned a specific cert then any cert that isn't the original would arouse suspicion. Even one that's correctly signed.

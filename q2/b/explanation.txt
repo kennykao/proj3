@@ -1,0 +1,3 @@
+a) When the random seed is generated, saw that it was shifted to the right 7 bits at the end of the file. So basically this was a brute force attack guessing integers from 0 to 7812 (which is the max value of time_micro_sec 999,999 shifted). And basically compared the n field of the RSA structure w/ the public key by using BN_cmp to compare them.
+
+b) Line 147. Fixing it would not turn into a fool-proof scheme, although it would be better, because it uses the rand() function, which is not a strong pseudo-random number generator. 

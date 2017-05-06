@@ -1,0 +1,7 @@
+a) I basically used wireshark to sniff packets. I opened q2a.pcap after following the preferences given in the specs, and I saw the decrypted traffic. I found the plaintext and that's how I got the secret.
+
+b) RSA - used for authentication + key exchanging
+   SHA-384 - hash function in pseudo random functions
+   AES-256 - confidentiality and integrity
+
+c) Key exchanging, such as DH, could have been used. If leaked, it would maintain the confidentiality before it got leaked. 
