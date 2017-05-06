@@ -1,0 +1,17 @@
+Question 3's explanation:
+
+a.) We first notice that client_fragment.c only checks for a '/' sign to terminate searching CN index.
+That means we can use openssl req to create a new CSR such that '/.neocal.info' is appended after the original CN.
+With the new CSR, we then ask Budget Certs R Us to sign it.
+We also notice that client_fragment.c uses both memcpy and strcpy.
+Moreover, we know that if we add '\0' to the end of an CN, it would be seen as exactly the same.
+With this in mind, we ask Budget Certs R Us to sign a new CSR where '\0' is added instead of the '/'.
+We then modify the rewriter.py so that we can see the secret as well as the 'emergency_kill' parameter.
+By changing 'false' to 'true&' in rewriter.py, we not only preserve the length of the request but also force the software to terminate.
+Running 4thwall.neocal.info verifies this.
+
+b.) For MITM attack like this, there is nothing the server can do to prevent this.
+
+c.) The Governor should perhaps stop using buggy code. He should either fix the bugs/vulnerabilities in his code or use well-tested libraries.
+
+d.) The CA can look for suspicious domain name that's a potential attack. It should perhaps verify the domain name before signing a CSR.
